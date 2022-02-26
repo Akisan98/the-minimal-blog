@@ -1,9 +1,9 @@
 <div *ngIf="smallScreen">
     <div *ngFor="let post of posts; let index = index">
         <div class="row" *ngIf="index % 2 === 0 && posts.length > index + 1">
-            <app-post-preview class="col-md-5"></app-post-preview>
+            <app-post-preview class="col-md-5" [title]="posts[index].title" [shortText]="posts[index].shortText"></app-post-preview>
             <div class="col-md-2"></div>
-            <app-post-preview class="col-md-5"></app-post-preview>
+            <app-post-preview class="col-md-5" [title]="posts[index+1].title" [shortText]="posts[index+1].shortText"></app-post-preview>
         </div>
     </div>
 </div>
@@ -11,16 +11,12 @@
 <div *ngIf="!smallScreen">
     <div *ngFor="let post of posts; let index = index">
         <div class="row" *ngIf="index % 2 === 0 && posts.length > index + 1">
-            <app-post-preview class="col-6"></app-post-preview>
-            <app-post-preview class="col-6"></app-post-preview>
+            <app-post-preview class="col-6" [title]="posts[index].title" [shortText]="posts[index].shortText"></app-post-preview>
+            <app-post-preview class="col-6" [title]="posts[index+1].title" [shortText]="posts[index+1].shortText"></app-post-preview>
         </div>
     </div>
 </div>
 
-<div *ngIf="!smallScreen && oddNumberOfPosts">
-    <app-post-preview class="col-6"></app-post-preview>
-</div>
-
-<div *ngIf="smallScreen && oddNumberOfPosts">
-    <app-post-preview class="col-6"></app-post-preview>
+<div class="row" *ngIf="oddNumberOfPosts">
+    <app-post-preview class="col-md-6" [title]="posts[posts.length -1].title" [shortText]="posts[posts.length -1].shortText"></app-post-preview>
 </div>

@@ -6,6 +6,8 @@ import { MainComponent } from './main/main.component';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,17 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     MainComponent,
     PostPreviewComponent,
     PostsComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: 'home', component: MainComponent},
+      {path: 'detail', component: PostDetailComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '**', component: PageNotFoundComponent}
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
