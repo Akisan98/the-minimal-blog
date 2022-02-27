@@ -8,6 +8,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PostService } from './post.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
