@@ -1,0 +1,44 @@
+$heroHeight: 45vh;
+$textColor: white;
+
+.hero {
+    background-color: grey;
+    height: $heroHeight;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $textColor;
+}
+
+.posts {
+    margin-top: 5rem;
+}
+
+.header {
+    padding-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    app-post-preview:nth-child(even) {
+        padding-left: 24px
+    
+    }
+    
+    app-post-preview:nth-child(odd) {
+        padding-right: 24px
+    }
+}
+
+@media screen and (min-width: 992px) {
+    app-post-preview:nth-child(even) {
+        padding-left: 32px
+    
+    }
+    
+    app-post-preview:nth-child(odd) {
+        padding-right: 32px
+    }
+}
+
+

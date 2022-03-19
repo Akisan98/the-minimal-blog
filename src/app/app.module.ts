@@ -2,29 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { PostPreviewComponent } from './post-preview/post-preview.component';
-import { PostsComponent } from './posts/posts.component';
-import { PostDetailComponent } from './post-detail/post-detail.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostService } from './post.service';
+import { PostPreviewComponent } from './post-preview/post-preview.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { PostPageComponent } from './post-page/post-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
+    PageNotFoundComponent,
     PostPreviewComponent,
-    PostsComponent,
-    PostDetailComponent,
-    PageNotFoundComponent
+    MainPageComponent,
+    PostPageComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'home', component: MainComponent},
-      {path: 'detail', component: PostDetailComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '', component: MainPageComponent},
+      {path: 'post/:id', component: PostPageComponent},
+      // {path: 'home', redirectTo: '', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],

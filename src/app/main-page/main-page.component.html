@@ -1,0 +1,19 @@
+<section class="hero">
+    <div class="content">
+        <h1>Title of Blog</h1>
+        <p>fdgdfgfg</p>
+    </div>
+</section>
+
+<section class="posts container">
+    <h2 class="header">Recent Posts</h2>
+
+    <div class="row">
+        <app-post-preview
+                class="col-md-6" 
+                *ngFor="let post of posts; let index = index"
+                [title]="post.title" 
+                [shortText]="post.shortText">
+        </app-post-preview>
+    </div>
+</section>
