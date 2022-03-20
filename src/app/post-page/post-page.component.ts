@@ -41,7 +41,7 @@ export class PostPageComponent implements OnInit {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (fields: any) => {
           console.log(fields)
-          return `<img src="${fields.data.target.fields.file.url}" height="${fields.data.target.fields.file.details.image.height}" width="${fields.data.target.fields.file.details.image.width}" alt="${fields.data.target.fields.description}"/>`
+          return `<img style="width: 100%; height: auto; max-height: 75vh; object-fit: cover;" src="${fields.data.target.fields.file.url}" height="${fields.data.target.fields.file.details.image.height}" width="${fields.data.target.fields.file.details.image.width}" alt="${fields.data.target.fields.description}"/>`
         }
       }
     };

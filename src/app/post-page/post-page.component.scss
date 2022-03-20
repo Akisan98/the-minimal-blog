@@ -1,11 +1,11 @@
 .blog-post {
-    padding: 2rem 25vw;
+    margin: auto;
+
+    h1 {
+        margin-top: 3rem;
+    }
 }
 
 #rich-text-body {
     margin-top: 5rem;
-    img {
-        width: 100%;
-        height: auto;
-    }
 }

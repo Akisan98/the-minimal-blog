@@ -7,7 +7,6 @@ exports.handler = async function() {
         accessToken: process.env.CONTENT_DELIVERY_API,
     });
         
-    // var res = await client.getEntry(process.env.ENTRY_ID); // asynchronous, returns promise
     var res = await client.getEntries()
             .then((response) => {
                 return response.items
