@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { BlogImage, BlogPost } from '../blog-post.model';
 
 @Component({
   selector: 'app-post-preview',
@@ -6,7 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./post-preview.component.scss']
 })
 export class PostPreviewComponent {
-  @Input() title = '';
-  @Input() shortText = '';
-  @Input() imagePath = '';
+  @Input() blogPost: BlogPost | undefined;
 }

@@ -8,6 +8,7 @@ import { PostService } from './post.service';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PostPageComponent } from './post-page/post-page.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: MainPageComponent},
       {path: 'post/:id', component: PostPageComponent},

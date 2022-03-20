@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Serverless Function
+
+Using API Keys and other secrets directly in a client side application is a big no-no in the work life / professional environment. That is because a user can still access to the secrets by monitoring the network calls, which defeats the purpose of leaving out secrets of the Git repo. A usual way of solving this problem is the off-load these HTTP calls to our own server or a proxy server, since I really don't need a server for Contentful, I'll be using Serverless Functions at Netlify which is the hosting provider of chose. 

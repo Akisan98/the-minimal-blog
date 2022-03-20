@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogPost } from '../blog-posts';
+import { BlogPost } from '../blog-post.model';
 import { PostService } from '../post.service';
 
 @Component({
@@ -14,6 +14,9 @@ export class MainPageComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe((posts) => this.posts = posts);
+    this.postService.getBlogPosts().then((posts) => {
+      this.posts = posts;
+      console.log(posts)
+    });
   }
 }

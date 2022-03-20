@@ -12,8 +12,7 @@
         <app-post-preview
                 class="col-md-6" 
                 *ngFor="let post of posts; let index = index"
-                [title]="post.title" 
-                [shortText]="post.shortText">
+                [blogPost]="post">
         </app-post-preview>
     </div>
 </section>

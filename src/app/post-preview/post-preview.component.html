@@ -1,7 +1,11 @@
 <div class="preview">
-    <img src="/assets/testImage.jpg" alt="image" height="211" width="375">
-    <h3>{{ title }}</h3>
-    <p>{{ shortText }}</p>
+    <img *ngIf="blogPost?.postImage" 
+            [src]="blogPost?.postImage.url" 
+            [alt]="blogPost?.postImage.fileName" 
+            [height]="blogPost?.postImage.details.image.height" 
+            [width]="blogPost?.postImage.details.image.width">
+    <h3>{{ blogPost?.title }}</h3>
+    <p>{{ blogPost?.description }}</p>
     <div class="spacer"></div>
-    <a class="button" routerLink="/post">View Blog Post</a>
+    <a class="button" [routerLink]="['/post', blogPost?.entityId]">View Blog Post</a>
 </div>
