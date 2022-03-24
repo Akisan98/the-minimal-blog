@@ -9,6 +9,8 @@ import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxContentfulRichTextModule } from 'ngx-contentful-rich-text';
+import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
     PostPreviewComponent,
     MainPageComponent,
-    PostPageComponent
+    PostPageComponent,
+    ExpandingImgComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxContentfulRichTextModule,
     RouterModule.forRoot([
       {path: '', component: MainPageComponent},
       {path: 'post/:id', component: PostPageComponent},

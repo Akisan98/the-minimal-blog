@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChildren } from '@angular/core';
+import { NgZoom } from 'ng-zoom';
 import { BlogImage, BlogPost } from '../blog-post.model';
 
 @Component({

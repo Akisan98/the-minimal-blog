@@ -15,7 +15,12 @@ export class PostService {
   async getBlogPosts() {
     if (this.blogPosts.length == 0) {
       var response = await this.http.get<any>('/.netlify/functions/posts').toPromise();
-      return response.map((post: any) => this.parseBlogPostResponse(post))
+      return response.map((post: any) => {
+        var parsedPost = this.parseBlogPostResponse(post);
+        this.blogPosts.push(parsedPost)
+        
+        return parsedPost;
+      })
     }
 
     return this.blogPosts;
