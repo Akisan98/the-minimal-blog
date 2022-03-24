@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -9,7 +8,6 @@ import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxContentfulRichTextModule } from 'ngx-contentful-rich-text';
 import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
 
 @NgModule({
@@ -30,7 +28,6 @@ import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
     ]),
     BrowserModule,
     HttpClientModule,
-    NgxContentfulRichTextModule,
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
