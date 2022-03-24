@@ -22,15 +22,15 @@ import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
     ExpandingImgComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    NgxContentfulRichTextModule,
     RouterModule.forRoot([
       {path: '', component: MainPageComponent},
       {path: 'post/:id', component: PostPageComponent},
       // {path: 'home', redirectTo: '', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),
+    BrowserModule,
+    HttpClientModule,
+    NgxContentfulRichTextModule,
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
