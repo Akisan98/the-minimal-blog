@@ -9,14 +9,27 @@ exports.handler = async function (event) {
         accessToken: process.env.CONTENT_DELIVERY_API,
     });
         
-    // var res = await client.getEntry(slug); // asynchronous, returns promise
+    return await client.getEntry(slug)
+        .then((response) => {
+            return {
+                statusCode: 200,
+                body: JSON.stringify(response)
+            }
+        })
+        .catch((error) => {
+            var body = JSON.parse(error.message);
+            return {
+                statusCode: body.status,
+                body: JSON.stringify({
+                    code: body.status,
+                    status: body.statusText,
+                    userMessage: body.message
+                }),
+            };
+        }); // asynchronous, returns promise
 
-    // return {
-    //     statusCode: 200,
-    //     body: JSON.stringify(res)
-    // }
+   
 
-    return client.getEntry(slug);
 }
 
 

@@ -9,19 +9,15 @@ exports.handler = async function() {
         
     return await client.getEntries({ content_type: 'blogPost' })
             .then((response) => {
-                console.log(response);
-
                 return {
                     statusCode: 200,
                     body: JSON.stringify(response.items)
                 }
             })
-            .catch((error) =>
-            {
+            .catch((error) => {
                 var body = JSON.parse(error.message);
-
                 return {
-                    statusCode: 404,
+                    statusCode: body.status,
                     body: JSON.stringify({
                         code: body.status,
                         status: body.statusText,
