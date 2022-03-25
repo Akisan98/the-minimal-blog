@@ -9,7 +9,7 @@ import { PostService } from '../post.service';
 })
 export class MainPageComponent implements OnInit {
 
-  posts: BlogPost[] = [];
+  posts: BlogPost[] | undefined;
 
   constructor(private postService: PostService) { }
 
@@ -17,6 +17,6 @@ export class MainPageComponent implements OnInit {
     this.postService.getBlogPosts().then((posts) => {
       this.posts = posts;
       console.log(posts)
-    });
+    })
   }
 }

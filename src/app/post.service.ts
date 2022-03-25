@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { of } from "rxjs";
 import { BlogPost } from "./blog-post.model";
 import { HttpClient } from '@angular/common/http'
+import { APIError } from "./error/api.error";
 
 @Injectable({
   providedIn: 'root',
@@ -12,23 +12,42 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  async getBlogPosts() {
+  getBlogPosts(): Promise<BlogPost[]> {
     if (this.blogPosts.length == 0) {
-      var response = await this.http.get<any>('/.netlify/functions/posts').toPromise();
-      return response.map((post: any) => {
-        var parsedPost = this.parseBlogPostResponse(post);
-        this.blogPosts.push(parsedPost)
-        
-        return parsedPost;
+      return this.http.get<any>('/.netlify/functions/posts').toPromise()
+      .then((response) => {
+        return response.map((post: any) => {
+          console.log(post);
+          
+          var parsedPost = this.parseBlogPostResponse(post);
+          this.blogPosts.push(parsedPost)
+          
+          return parsedPost;
+        })
+      })
+      .catch((error) => {
+        console.log(`Something when wrong, status: ${error.error.code}, message: ${error.error.userMessage}`)
+        return error.error as APIError;
       })
     }
 
-    return this.blogPosts;
+    return Promise.all(this.blogPosts);
   }
 
   async getPostById(slug: string) {
     if (this.blogPosts.length == 0) {
-      var response = await this.http.post<any>('/.netlify/functions/post', { slug: slug }).toPromise();
+      var response = await this.http.post<any>('/.netlify/functions/post', { slug: slug })
+        .toPromise()
+        .then((res) => {
+          console.log(res);
+          return res;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error
+        });
+      console.log(response);
+      
       return this.parseBlogPostResponse(response);
     }
     

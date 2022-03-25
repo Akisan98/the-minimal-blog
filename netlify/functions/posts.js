@@ -7,16 +7,28 @@ exports.handler = async function() {
         accessToken: process.env.CONTENT_DELIVERY_API,
     });
         
-    var res = await client.getEntries()
+    return await client.getEntries({ content_type: 'blogPost' })
             .then((response) => {
-                return response.items
-            })
-            .catch(console.error) 
+                console.log(response);
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify(res)
-    }
+                return {
+                    statusCode: 200,
+                    body: JSON.stringify(response.items)
+                }
+            })
+            .catch((error) =>
+            {
+                var body = JSON.parse(error.message);
+
+                return {
+                    statusCode: 404,
+                    body: JSON.stringify({
+                        code: body.status,
+                        status: body.statusText,
+                        userMessage: body.message
+                    }),
+                };
+            });
 }
 
 
