@@ -34,9 +34,14 @@ export class PostService {
     return Promise.all(this.blogPosts);
   }
 
-  async getPostById(slug: string) {
+  async getPostById(slug: string, preview: boolean = false) {
     if (this.blogPosts.length == 0) {
-      var response = await this.http.post<any>('/.netlify/functions/post', { slug: slug })
+      var url = '/.netlify/functions/post';
+      if (preview) {
+        url = '/.netlify/functions/post-preview';
+      }
+
+      var response = await this.http.post<any>(url, { slug: slug })
         .toPromise()
         .then((res) => {
           console.log(res);

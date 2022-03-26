@@ -23,6 +23,7 @@ import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
     RouterModule.forRoot([
       {path: '', component: MainPageComponent},
       {path: 'post/:id', component: PostPageComponent},
+      {path: 'preview/:id', component: PostPageComponent},
       // {path: 'home', redirectTo: '', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),

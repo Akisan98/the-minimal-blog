@@ -8,7 +8,7 @@ import {
   ViewChildren, 
   ViewContainerRef
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { PostService } from '../post.service';
 
 import { BLOCKS } from '@contentful/rich-text-types';
@@ -41,18 +41,18 @@ export class PostPageComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private activatedRoute: ActivatedRoute,
+    private router: Router,
     private viewContainerRef: ViewContainerRef, 
     private componentFactoryResolver: ComponentFactoryResolver,
   ) { }
 
   ngOnInit() {
-    // Get Blog Post ID.
-    this.activatedRoute.params.subscribe(params => {
-      this.slug = params['id'];
-    });
+    // Get ViewType and Blog Post ID.
+    var path = this.router.url;
+    var viewType = path.substring(1, path.lastIndexOf("/"));
+    this.slug = path.substring(path.lastIndexOf("/") + 1);
 
-    this.postService.getPostById(this.slug!)
+    this.postService.getPostById(this.slug!, viewType == 'preview')
       .then((post: any) => {
         this.blogPost = post
 

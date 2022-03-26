@@ -3,6 +3,17 @@ const contentful = require('contentful')
 exports.handler = async function (event) {
     const { slug } = JSON.parse(event.body);
 
+    if (!slug) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({
+                code: 400,
+                status: 'Bad Request',
+                userMessage: "The request was malformed or missing a required parameter."
+            }),
+        };
+    }
+
     const client = contentful.createClient({
         space: process.env.SPACE_ID,
         // environment: '<environment_id>', // defaults to 'master' if not set
