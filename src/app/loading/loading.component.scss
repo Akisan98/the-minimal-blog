@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+.spinner-grow{
+
+    &:first-child {
+        margin-right: 8px;
+    }
+
+    &:nth-child(n + 2) {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    &:last-child {
+        margin-left: 8px;
+    }
+}
+
+p {
+    padding-top: 1rem;
+}

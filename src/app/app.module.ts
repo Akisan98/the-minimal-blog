@@ -9,6 +9,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
     PostPreviewComponent,
     MainPageComponent,
     PostPageComponent,
-    ExpandingImgComponent
+    ExpandingImgComponent,
+    LoadingComponent
   ],
   imports: [
     RouterModule.forRoot([

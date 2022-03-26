@@ -1,18 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" [routerLink]="['/']" *ngIf="config; else defaultBrand">{{ config.title }}</a>
-        <ng-template #defaultBrand><a class="navbar-brand" [routerLink]="['/']">Name of Website</a></ng-template>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" [routerLink]="['/']" data-bs-toggle="collapse" data-bs-target="#navbarNav">Home</a>
-            </li>
-        </ul>
+<div *ngIf="config && posts; else loadingScreen">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" [routerLink]="['/']" *ngIf="config; else defaultBrand">{{ config.pageName }}</a>
+            <ng-template #defaultBrand><a class="navbar-brand" [routerLink]="['/']">Name of Website</a></ng-template>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']" data-bs-toggle="collapse" data-bs-target="#navbarNav">Home</a>
+                </li>
+            </ul>
+            </div>
         </div>
-    </div>
-</nav>
-  
-<router-outlet></router-outlet>
+    </nav>
+      
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #loadingScreen>
+    <app-loading></app-loading>
+</ng-template>
