@@ -13,8 +13,8 @@ import { PostService } from '../post.service';
 
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BlogPost } from '../blog-post.model';
 import { ExpandingImgComponent } from '../expanding-img/expanding-img.component';
+import { BlogPost } from '../blog';
 
 @Component({
   selector: 'app-post-page',

@@ -21,3 +21,9 @@ export interface BlogImage {
     };
 }
 
+export interface BlogConfig {
+    title: string;
+    heroSubtext: string;
+    pageName: string;
+    hero: any;
+}

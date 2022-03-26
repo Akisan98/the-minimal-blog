@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChildren } from '@angular/core';
-import { NgZoom } from 'ng-zoom';
-import { BlogImage, BlogPost } from '../blog-post.model';
+import { Component, Input } from '@angular/core';
+import { BlogPost } from '../blog';
 
 @Component({
   selector: 'app-post-preview',

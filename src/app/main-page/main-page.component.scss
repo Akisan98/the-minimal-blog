@@ -2,13 +2,18 @@ $heroHeight: 45vh;
 $textColor: white;
 
 .hero {
-    background-color: grey;
     height: $heroHeight;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: $textColor;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.content {
+    max-width: 80%;
 }
 
 .posts {

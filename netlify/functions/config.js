@@ -7,11 +7,16 @@ exports.handler = async function() {
         accessToken: process.env.CONTENT_DELIVERY_API,
     });
         
-    return await client.getEntry({ content_type: 'blogConfiguration' })
+    return await client.getEntries({ content_type: 'blogConfiguration' })
         .then((response) => {
             return {
                 statusCode: 200,
-                body: JSON.stringify(response)
+                body: JSON.stringify({
+                    title: response.items[0]?.fields.title,
+                    heroSubtext: response.items[0]?.fields.heroSubtext,
+                    pageName: response.items[0]?.fields.pageName,
+                    hero: response.items[0]?.fields.hero.fields,
+                })
             }
         })
         .catch((error) => {
