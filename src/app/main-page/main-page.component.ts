@@ -17,6 +17,7 @@ export class MainPageComponent implements OnInit {
     this.postService.getBlogPosts().then((posts) => {
       this.posts = posts;
       console.log(posts)
-    })
+    });
+    
   }
 }
