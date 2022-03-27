@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { APIError } from "./error/api.error";
 import { BlogPost } from "./blog";
 
@@ -24,10 +24,6 @@ export class PostService {
           
           return parsedPost;
         })
-      })
-      .catch((error) => {
-        console.log(`Something when wrong, status: ${error.error.code}, message: ${error.error.userMessage}`)
-        return error.error as APIError;
       })
     }
 
@@ -56,7 +52,19 @@ export class PostService {
       return this.parseBlogPostResponse(response);
     }
     
-    return this.blogPosts.find((post) => post.entityId == slug);
+    var post = this.blogPosts.find((post) => post.entityId == slug);
+    
+    if (!post) {
+      throw new HttpErrorResponse({
+        error: {
+          code: 404,
+          status: "Not Found",
+          userMessage: "The requested resource or endpoint could not be found."
+        }
+      })
+    }
+    
+    return post;
   }
 
   parseBlogPostResponse(post: any) {

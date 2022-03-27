@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -10,6 +10,8 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
 import { LoadingComponent } from './loading/loading.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GlobalErrorHandler } from './error/global-error-handler';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,12 @@ import { LoadingComponent } from './loading/loading.component';
     ),
     BrowserModule,
     HttpClientModule,
+    NgbModule,
   ],
-  providers: [PostService],
+  providers: [
+    PostService,
+    {provide: ErrorHandler, useClass: GlobalErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

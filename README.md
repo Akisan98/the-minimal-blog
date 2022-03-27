@@ -36,3 +36,4 @@ Using API Keys and other secrets directly in a client side application is a big 
 |              |         |      |
 |              |         |      |
 
+ npm install --legacy-peer-deps

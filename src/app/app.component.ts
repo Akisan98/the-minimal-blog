@@ -2,19 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { BlogConfig, BlogPost } from './blog';
 import { ConfigService } from './config.service';
 import { PostService } from './post.service';
+import { ToastService } from './toast/toast.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   config: BlogConfig | undefined;
   posts: BlogPost[] | undefined;
 
   constructor(
     private postService: PostService,
-    private configService: ConfigService
+    private configService: ConfigService,
+    public toastService: ToastService
   ) {}
   
   ngOnInit(): void {

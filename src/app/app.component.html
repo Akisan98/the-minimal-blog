@@ -15,10 +15,22 @@
             </div>
         </div>
     </nav>
-      
+
     <router-outlet></router-outlet>
 </div>
 
 <ng-template #loadingScreen>
     <app-loading></app-loading>
 </ng-template>
+
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 100;">
+    <ngb-toast
+        *ngFor="let toast of toastService.toasts"
+        [autohide]="true"
+        [delay]="toast.delay || 10000"
+        (hidden)="false"
+        [header]="toast.header"
+        ngClass="{{toast.class}}">
+        {{ toast.body }}
+    </ngb-toast>
+</div>

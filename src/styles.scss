@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-// @media screen and (max-width: 350px) {
-//     .toast {
-//         width: unset;
-//     }
-// }
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+@media screen and (max-width: 450px) {
+    .toast {
+        width: unset;
+    }
+}
