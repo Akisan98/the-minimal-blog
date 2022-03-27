@@ -12,6 +12,7 @@ import { ExpandingImgComponent } from './expanding-img/expanding-img.component';
 import { LoadingComponent } from './loading/loading.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GlobalErrorHandler } from './error/global-error-handler';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GlobalErrorHandler } from './error/global-error-handler';
     MainPageComponent,
     PostPageComponent,
     ExpandingImgComponent,
-    LoadingComponent
+    LoadingComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot([
