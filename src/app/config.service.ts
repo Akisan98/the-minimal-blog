@@ -15,7 +15,6 @@ export class ConfigService {
     if (this.config.length == 0) {
       return this.http.get<BlogConfig>('/.netlify/functions/config').toPromise()
           .then((response) => {
-            console.log(response);
             this.config.push(response!);
             return this.config as any;
           })

@@ -64,11 +64,9 @@ export class PostPageComponent implements OnInit {
         const app = document.getElementById("rich-text-body");
         app!.innerHTML = this.richText;
 
-        console.log(post);
         if (post.language != 'en') {
           document.documentElement.lang = post.language; 
         }
-        
 
         // Replace Image with Expandable once.
         this.replaceImages();

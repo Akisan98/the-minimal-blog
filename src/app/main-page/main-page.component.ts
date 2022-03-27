@@ -23,7 +23,6 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.configService.getBlogConfig().then((config) => {
       this.config = config[0] as BlogConfig;
-      console.log(config[0]);
 
       const app = document.getElementById("title");
       app!.innerHTML = this.config.title;
@@ -33,17 +32,13 @@ export class MainPageComponent implements OnInit {
 
       this.titleService.setTitle(this.config.pageName);
 
-      console.log(this.config.hero.file);
-
       if (document.documentElement.lang != 'en') {
         document.documentElement.lang = 'en'; 
       }
-      
     });
 
     this.postService.getBlogPosts().then((posts) => {
       this.posts = posts;
-      console.log(posts)
     });
   }
 }

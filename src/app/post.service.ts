@@ -17,8 +17,6 @@ export class PostService {
       return this.http.get<any>('/.netlify/functions/posts').toPromise()
       .then((response) => {
         return response.map((post: any) => {
-          console.log(post);
-          
           var parsedPost = this.parseBlogPostResponse(post);
           this.blogPosts.push(parsedPost)
           
@@ -40,14 +38,11 @@ export class PostService {
       var response = await this.http.post<any>(url, { slug: slug })
         .toPromise()
         .then((res) => {
-          console.log(res);
           return res;
         })
         .catch((error) => {
-          console.log(error);
           return error
         });
-      console.log(response);
       
       return this.parseBlogPostResponse(response);
     }
