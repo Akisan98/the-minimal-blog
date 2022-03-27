@@ -28,7 +28,10 @@ import { LoadingComponent } from './loading/loading.component';
       {path: 'preview/:id', component: PostPageComponent},
       // {path: 'home', redirectTo: '', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
-    ]),
+      
+      ], 
+      { scrollPositionRestoration: 'enabled' } // Don't know why but disable is restore, enable is to start on top
+    ),
     BrowserModule,
     HttpClientModule,
   ],
