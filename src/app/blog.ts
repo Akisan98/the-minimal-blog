@@ -26,4 +26,6 @@ export interface BlogConfig {
     heroSubtext: string;
     pageName: string;
     hero: any;
+    navbarTitle: string;
+    navbarIcon: any;
 }

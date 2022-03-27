@@ -64,6 +64,12 @@ export class PostPageComponent implements OnInit {
         const app = document.getElementById("rich-text-body");
         app!.innerHTML = this.richText;
 
+        console.log(post);
+        if (post.language != 'en') {
+          document.documentElement.lang = post.language; 
+        }
+        
+
         // Replace Image with Expandable once.
         this.replaceImages();
       });
@@ -76,6 +82,10 @@ export class PostPageComponent implements OnInit {
     var images = document.getElementsByTagName("img")
 
     for (let item of images) {
+      if (item.id == 'brandImage') {
+        continue;
+      }
+
       const factory = this.componentFactoryResolver.resolveComponentFactory(ExpandingImgComponent);
       const component: ComponentRef<ExpandingImgComponent> = this.viewContainerRef.createComponent(factory);
       component.instance.src = item.src;

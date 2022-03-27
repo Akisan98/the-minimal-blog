@@ -34,6 +34,10 @@ export class MainPageComponent implements OnInit {
       this.titleService.setTitle(this.config.pageName);
 
       console.log(this.config.hero.file);
+
+      if (document.documentElement.lang != 'en') {
+        document.documentElement.lang = 'en'; 
+      }
       
     });
 

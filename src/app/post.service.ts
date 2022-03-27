@@ -74,7 +74,8 @@ export class PostService {
       description: post.fields.description,
       post: post.fields.post,
       postImage: post.fields.postImage.fields.file,
-      date: post.fields.date
+      date: post.fields.date,
+      language: post.fields.language
     };
   }
 }

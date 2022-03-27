@@ -16,6 +16,8 @@ exports.handler = async function() {
                     heroSubtext: response.items[0]?.fields.heroSubtext,
                     pageName: response.items[0]?.fields.pageName,
                     hero: response.items[0]?.fields.hero.fields,
+                    navbarTitle: response.items[0]?.fields.navbarTitle,
+                    navbarIcon: response.items[0]?.fields.navbarIcon.fields,
                 })
             }
         })
