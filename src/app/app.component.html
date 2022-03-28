@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-            <a class="navbar-brand" [routerLink]="['/']" *ngIf="config; else defaultBrand">
-                <img id="brandImage" *ngIf="config.navbarIcon" [src]="'https:' + config.navbarIcon.file.url" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            <a class="navbar-brand" aria-label="Brand or Icon of Blog" [routerLink]="['/']" *ngIf="config; else defaultBrand">
+                <img id="brandImage" *ngIf="config.navbarIcon" [src]="'https:' + config.navbarIcon.file.url + '?w=30&h=24'" alt="" width="30" height="24" class="d-inline-block align-text-top">
                 {{ config.navbarTitle }}
             </a>
             <ng-template #defaultBrand><a class="navbar-brand" [routerLink]="['/']">Name of Website</a></ng-template>
