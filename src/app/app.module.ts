@@ -42,7 +42,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   providers: [
     PostService,
-    {provide: ErrorHandler, useClass: GlobalErrorHandler}
+    {provide: ErrorHandler, useClass: GlobalErrorHandler},
   ],
   bootstrap: [AppComponent]
 })

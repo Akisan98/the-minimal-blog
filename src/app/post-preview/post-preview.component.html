@@ -1,9 +1,12 @@
-<div class="preview">
-    <img *ngIf="blogPost?.postImage" 
-            [src]="blogPost?.postImage.url" 
+<div #container class="preview">
+    <picture>
+        <source [srcset]="blogPost?.postImage.url + '?w=' + wholeNumber(container.offsetWidth) + '&h=' + wholeNumber((container.offsetWidth / blogPost?.postImage.details.image.width) * blogPost?.postImage.details.image.height) + '&fm=webp'" />
+        <img *ngIf="blogPost?.postImage" 
+            [src]="blogPost?.postImage.url + '?w=' + wholeNumber(container.offsetWidth) + '&h=' + wholeNumber((container.offsetWidth / blogPost?.postImage.details.image.width) * blogPost?.postImage.details.image.height)"
             [alt]="blogPost?.postImage.fileName" 
             [height]="blogPost?.postImage.details.image.height" 
             [width]="blogPost?.postImage.details.image.width">
+    </picture>
     <h3>{{ blogPost?.title }}</h3>
     <p>{{ blogPost?.description }}</p>
     <div class="spacer"></div>

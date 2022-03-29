@@ -8,4 +8,8 @@ import { BlogPost } from '../blog';
 })
 export class PostPreviewComponent {
   @Input() blogPost: BlogPost | undefined;
+
+  wholeNumber(value: number) {
+    return Math.round(value)
+  }
 }

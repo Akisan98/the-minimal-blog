@@ -27,8 +27,10 @@ export class AppComponent implements OnInit {
     this.configService.getBlogConfig().then((config) => {
       this.config = config[0] as BlogConfig;
 
-      const icon = document.getElementById("appIcon") as HTMLLinkElement;
-      icon!.href = this.config.navbarIcon.file.url;
+      if (this.config.navbarIcon) {
+        const icon = document.getElementById("appIcon") as HTMLLinkElement;
+        icon!.href = this.config.navbarIcon.file.url;
+      }
     });
 
     this.postService.getBlogPosts().then((posts) => {

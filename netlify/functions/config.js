@@ -12,12 +12,12 @@ exports.handler = async function() {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
-                    title: response.items[0]?.fields.title,
-                    heroSubtext: response.items[0]?.fields.heroSubtext,
-                    pageName: response.items[0]?.fields.pageName,
-                    hero: response.items[0]?.fields.hero.fields,
-                    navbarTitle: response.items[0]?.fields.navbarTitle,
-                    navbarIcon: response.items[0]?.fields.navbarIcon.fields,
+                    title: response.items[0]?.fields?.title,
+                    heroSubtext: response.items[0]?.fields?.heroSubtext,
+                    pageName: response.items[0]?.fields?.pageName,
+                    hero: response.items[0]?.fields?.hero?.fields,
+                    navbarTitle: response.items[0]?.fields?.navbarTitle,
+                    navbarIcon: response.items[0]?.fields?.navbarIcon?.fields,
                 })
             }
         })
