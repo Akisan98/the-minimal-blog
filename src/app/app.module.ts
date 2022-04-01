@@ -28,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     RouterModule.forRoot([
       {path: '', component: MainPageComponent},
+      {path: 'preview', component: MainPageComponent},
       {path: 'post/:id', component: PostPageComponent},
       {path: 'preview/:id', component: PostPageComponent},
       // {path: 'home', redirectTo: '', pathMatch: 'full'},

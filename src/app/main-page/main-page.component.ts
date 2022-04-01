@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { BlogConfig, BlogPost } from '../blog';
 import { ConfigService } from '../config.service';
 import { PostService } from '../post.service';
@@ -17,11 +18,16 @@ export class MainPageComponent implements OnInit {
   constructor(
     private postService: PostService,
     private configService: ConfigService,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.configService.getBlogConfig().then((config) => {
+    // Get ViewType and Blog Post ID.
+    var path = this.router.url;
+    var viewType = path.substring(1, path.lastIndexOf("/"))
+
+    this.configService.getBlogConfig(viewType == 'preview').then((config) => {
       this.config = config[0] as BlogConfig;
 
       const app = document.getElementById("title");

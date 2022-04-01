@@ -8,7 +8,7 @@ import { NgZoom } from 'ng-zoom';
 })
 
 export class ExpandingImgComponent implements AfterViewInit {
-  @Input() src: string = '';
+  @Input() imagePath: string = '';
   @Input() alt: string = 'No Description of Image'
   @Input() height: string = "0";
   @Input() width: string = "0";

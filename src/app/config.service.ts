@@ -11,9 +11,14 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
-  getBlogConfig(): Promise<BlogConfig[]> {
+  getBlogConfig(preview: boolean = false): Promise<BlogConfig[]> {
     if (this.config.length == 0) {
-      return this.http.get<BlogConfig>('/.netlify/functions/config').toPromise()
+      var url = '/.netlify/functions/config';
+      if (preview) {
+        url = '/.netlify/functions/config-preview';
+      }
+
+      return this.http.get<BlogConfig>(url).toPromise()
           .then((response) => {
             this.config.push(response!);
             return this.config as any;

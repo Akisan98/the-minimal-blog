@@ -86,7 +86,7 @@ export class PostPageComponent implements OnInit {
 
       const factory = this.componentFactoryResolver.resolveComponentFactory(ExpandingImgComponent);
       const component: ComponentRef<ExpandingImgComponent> = this.viewContainerRef.createComponent(factory);
-      component.instance.src = item.src;
+      component.instance.imagePath = item.src;
       component.instance.height = item.height.toString();
       component.instance.width = item.width.toString();
       component.instance.alt = item.alt;
