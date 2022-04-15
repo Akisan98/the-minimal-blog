@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { ErrorHandler, Injectable, Injector, NgZone } from '@angular/core';
 import { ErrorService } from '../services/error.service';
 import { ToastService } from '../services/toast.service';
 
@@ -7,26 +7,19 @@ import { ToastService } from '../services/toast.service';
 export class GlobalErrorHandler implements ErrorHandler {
 
     // We can't make ErrorHandler wait, so we will inject the rest later
-    constructor(private injector: Injector) { } 
+    constructor(private injector: Injector, private zone: NgZone) { } 
   
     handleError(error: Error | HttpErrorResponse) {
 
-        // The HttpErrorResponse detection doesn't seem to work
-        // error instanceof HttpErrorResponse
-
-        const errorText = error.toString()
-        const isNetworkError: Boolean = errorText.includes("HttpErrorResponse")
         const errorService = this.injector.get(ErrorService);
         const toast = this.injector.get(ToastService);
 
-        if (isNetworkError) {
-            // TODO FIX
-            // Hacky Fix for the Zone Uncaught Addon
-            const JSONStart = errorText.indexOf("{")
-            const JSONBody = JSON.parse(errorText.substring(JSONStart));
-            toast.showError(errorService.getServerError(JSONBody));
-        } else {
-            toast.showError(errorService.getClientError(error));
-        }
+        this.zone.run(() => {
+            if (error instanceof HttpErrorResponse) {
+                toast.showError(errorService.getServerError(error));
+            } else {
+                toast.showError(errorService.getClientError(error));
+            }
+        });
     }
 }
