@@ -9,7 +9,7 @@ exports.handler = async function (event) {
         host: "preview.contentful.com"
     });
         
-    var res = await client.getEntry(slug); // asynchronous, returns promise
+    var res = await client.getEntry(slug); 
 
     return {
         statusCode: 200,

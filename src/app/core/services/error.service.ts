@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ToastMessage } from '../toast/toast';
-import { HTMLError } from './html.error';
-import { ContentfulError } from './contentful.error';
+import { ContentfulError } from '../models/contentful.error';
+import { ToastMessage } from '../models/toast';
 
 @Injectable({
     providedIn: 'root'

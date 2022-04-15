@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" aria-label="Brand or Icon of Blog" [routerLink]="['/']" *ngIf="config; else defaultBrand">
+            <img id="brandImage" *ngIf="config.navbarIcon" [src]="'https:' + config.navbarIcon.file.url + '?fit=pad&w=30&h=30'" alt="" width="30" height="30" class="d-inline-block align-text-top">
+            {{ config.navbarTitle }}
+        </a>
+        <ng-template #defaultBrand><a class="navbar-brand" [routerLink]="['/']">Name of Website</a></ng-template>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

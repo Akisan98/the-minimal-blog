@@ -9,12 +9,12 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { PostService } from '../post.service';
 
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { ExpandingImgComponent } from '../expanding-img/expanding-img.component';
-import { BlogPost } from '../blog';
+import { BlogPost } from 'src/app/core/models/blog';
+import { PostService } from 'src/app/core/services/post.service';
+import { ExpandingImgComponent } from 'src/app/shared/components/expanding-img/expanding-img.component';
 
 @Component({
   selector: 'app-post-page',

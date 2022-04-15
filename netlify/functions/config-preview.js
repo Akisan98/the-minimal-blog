@@ -31,5 +31,5 @@ exports.handler = async function() {
                     userMessage: body.message
                 }),
             };
-        }); // asynchronous, returns promise
+        }); 
 }

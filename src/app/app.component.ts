@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogConfig, BlogPost } from './blog';
-import { ConfigService } from './config.service';
-import { PostService } from './post.service';
-import { ToastService } from './toast/toast.service';
+import { BlogConfig, BlogPost } from './core/models/blog';
+import { ConfigService } from './core/services/config.service';
+import { PostService } from './core/services/post.service';
+import { ToastService } from './core/services/toast.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   config: BlogConfig | undefined;

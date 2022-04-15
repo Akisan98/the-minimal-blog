@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BlogPost } from '../blog';
+import { BlogPost } from 'src/app/core/models/blog';
 
 @Component({
   selector: 'app-post-preview',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BlogConfig } from './blog';
-import { APIError } from './error/api.error';
+import { APIError } from 'src/app/core/models/api.error';
+import { BlogConfig } from '../models/blog';
 
 @Injectable({
   providedIn: 'root'

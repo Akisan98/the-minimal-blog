@@ -3,7 +3,6 @@ const contentful = require('contentful')
 exports.handler = async function() {
     const client = contentful.createClient({
         space: process.env.SPACE_ID,
-        // environment: '<environment_id>', // defaults to 'master' if not set
         accessToken: process.env.CONTENT_DELIVERY_API,
     });
         
@@ -31,7 +30,7 @@ exports.handler = async function() {
                     userMessage: body.message
                 }),
             };
-        }); // asynchronous, returns promise
+        });
 }
 
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { BlogConfig, BlogPost } from '../blog';
-import { ConfigService } from '../config.service';
-import { PostService } from '../post.service';
+import { BlogConfig, BlogPost } from '../../../core/models/blog';
+import { ConfigService } from '../../../core/services/config.service';
+import { PostService } from '../../../core/services/post.service';
 
 @Component({
   selector: 'app-main-page',
