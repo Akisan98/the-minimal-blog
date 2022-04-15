@@ -13,9 +13,9 @@ export class PostService {
 
   getBlogPosts(): Promise<BlogPost[]> {
     if (this.blogPosts.length == 0) {
-      return this.http.get<any>('/.netlify/functions/posts').toPromise()
+      return this.http.get<any[]>('/.netlify/functions/posts').toPromise()
       .then((response) => {
-        return response.map((post: any) => {
+        return response!.map((post: any) => {
           var parsedPost = this.parseBlogPostResponse(post);
           this.blogPosts.push(parsedPost)
           

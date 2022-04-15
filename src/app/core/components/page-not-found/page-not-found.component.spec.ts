@@ -22,4 +22,9 @@ describe('PageNotFoundComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display text', () => {
+    const footerElement: HTMLElement = fixture.nativeElement;
+    expect(footerElement.textContent).toContain("We couldn't find that page!");
+  });
 });

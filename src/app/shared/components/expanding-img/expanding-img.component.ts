@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Directive, ElementRef, Input, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChildren } from '@angular/core';
 import { NgZoom } from 'ng-zoom';
 
 @Component({

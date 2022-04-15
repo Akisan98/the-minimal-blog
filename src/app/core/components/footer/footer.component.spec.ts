@@ -22,4 +22,9 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain credits', () => {
+    const footerElement: HTMLElement = fixture.nativeElement;
+    expect(footerElement.textContent).toContain('Akisan');
+  });
 });

@@ -37,7 +37,7 @@ import { PostPreviewComponent } from './features/components/post-preview/post-pr
       {path: '**', component: PageNotFoundComponent}
       
       ], 
-      { scrollPositionRestoration: 'enabled' } // Don't know why but disable is restore, enable is to start on top
+      { scrollPositionRestoration: 'enabled' }, // Don't know why but disable is restore, enable is to start on top
     ),
     BrowserModule,
     HttpClientModule,

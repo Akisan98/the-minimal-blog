@@ -20,6 +20,7 @@ export class GlobalErrorHandler implements ErrorHandler {
         const toast = this.injector.get(ToastService);
 
         if (isNetworkError) {
+            // TODO FIX
             // Hacky Fix for the Zone Uncaught Addon
             const JSONStart = errorText.indexOf("{")
             const JSONBody = JSON.parse(errorText.substring(JSONStart));

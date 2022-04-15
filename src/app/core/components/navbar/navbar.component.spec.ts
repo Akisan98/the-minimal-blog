@@ -22,4 +22,9 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display default', () => {
+    const footerElement: HTMLElement = fixture.nativeElement;
+    expect(footerElement.textContent).toContain('Name of Website');
+  });
 });
